@@ -16,7 +16,7 @@ To go into container
   docker-composer exec backend sh
 ```
 
-Give windows user permission to alter wsl2 ubuntu file
+Give all users permission to Read Write wsl2 (Ubuntu) folder
 ```bash
-  sudo chown -R themuhdhilmi /home
+  sudo chmod -R 777 /home
 ```
