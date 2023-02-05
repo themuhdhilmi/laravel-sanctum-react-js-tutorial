@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7.22
+    restart: always
+    environment:
+      MYSQL_DATABASE: tutorial_udemy
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./storage/dbdata:/var/lib/mysql
+    ports:
+      - 33066:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 9001:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    links:
+      - db:db
