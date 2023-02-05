@@ -15,7 +15,7 @@ services:
     image: mysql:5.7.22
     restart: always
     environment:
-      MYSQL_DATABASE: tutorial_udemy
+      MYSQL_DATABASE: laravel_tutorial
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
